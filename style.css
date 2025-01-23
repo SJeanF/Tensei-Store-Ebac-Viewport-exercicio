@@ -1,0 +1,282 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {overflow-x: hidden;}
+
+.margintop64 {
+    height: 64px;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #fece10;
+    height: fit-content;
+    min-height: 64px;
+    border-bottom: 4px solid #000000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+header h1 {
+    min-width: fit-content;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    min-height: 64px;
+}
+
+header .cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+header nav {
+    margin-top: 10px;
+    display: none;
+    background-color: #f3f3f4;
+    align-items: center;
+    justify-content: start;
+}
+
+header nav > div {
+    text-align: center;
+    border: 10px solid transparent;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #000000;
+}
+
+header nav > div:hover {
+    background-color: #fece10;
+
+}
+
+header #hamburguer {
+    width: 32px;
+    cursor: pointer;
+}
+
+header #hamburguer span{
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cabecalho > div {
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho > div > * {
+    margin-left: 30px;
+}
+
+.dropdown {
+    position: relative; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateX(-50%);
+}
+
+.dropdown > button {
+    font-size: 20px;
+    border: 1px solid transparent;
+    border-radius: 100%;
+    padding: 10px;
+    background-color: #f3f3f4;
+    cursor: pointer;
+}
+
+.dropdown > button:hover {
+    border: 1px solid black;
+    color: #fece10;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-55%);
+    background-color: #f3f3f4;
+    border: 4px solid black;
+    width: 150px; /* Ajuste conforme necessário */
+    height: calc(100vh - 64px);
+    overflow-y: scroll;
+}
+
+.dropdown-content img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+
+.dropdown-lista-produtos {
+    margin-top: 20px;
+}
+
+.dropdown-lista-produtos li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-produto {
+    width: 100%;
+}
+
+section h2 {
+    text-align: center;
+    margin: 15px 0;
+}
+
+#destaques {
+    max-height: 700px;
+}
+
+#carrosel img{
+    max-height: 400px;
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+}
+
+#carrosel {
+    width: 100%;
+    height: fit-content;
+}
+
+.slick-track {
+    height: fit-content;
+    max-height: 700px;
+    display: flex;
+}
+
+#slideElement {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    max-height: 700px;
+    overflow-wrap: break-word;
+    height: fit-content;
+}
+
+#slideElement > div {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.preco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    background-color: #459bc9;
+    padding: 10px;
+}
+
+.preco button {
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.preco button:hover {
+    border: 1px inset black;
+}
+
+#destaques {
+    border-bottom: 4px solid #000000;
+    border-top: 4px solid #000000;
+    height: calc(100vh - 93px);
+}
+
+#sobreNos {
+    height: 300px;
+    border-bottom: 4px solid #000000;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    overflow-wrap: break-word;
+}
+
+.grid img {
+    max-width: 255px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1023px) {
+    #destaques {
+        height: fit-content;
+        max-height: none;
+    }
+    
+    #slideElement {
+        display: flex;
+        flex-direction: column;
+        height: inherit;
+        height: fit-content;
+    }
+
+    .slick-track {
+        height: fit-content;
+    }
+
+    #carrosel {
+        font-size: 20px;
+    }
+
+    #carrosel img {
+        max-width: none;
+        max-height: none;
+    }
+    
+    .preco {
+        width: fit-content;
+    }
+
+}
+
+@media screen and (max-width:639px) {
+    #destaques {
+        height: auto;
+    }
+    
+
+    
+}
