@@ -224,8 +224,9 @@ section h2 {
 }
 
 #sobreNos {
-    height: 300px;
+    height: fit-content;
     border-bottom: 4px solid #000000;
+    padding-bottom: 57px;
 }
 
 .grid {
@@ -236,6 +237,25 @@ section h2 {
 
 .grid img {
     max-width: 255px;
+    width: 100%;
+}
+
+#produtos {
+    padding-bottom: 57px;
+    border-bottom: 4px solid black;
+}
+
+#produtos .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 24.25%);
+    column-gap: 1%;
+}
+
+.produto img {
+    max-height: 360px;
+}
+
+.produto .preco  {
     width: 100%;
 }
 
@@ -270,13 +290,48 @@ section h2 {
         width: fit-content;
     }
 
+    .aboutus {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .aboutus img {
+        height: 40vh;
+        max-width: 90vw;
+    }
+
+    .aboutus p {
+        margin-top: 30px;
+    }
+
+    #produtos .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 49%);
+        column-gap: 1%;
+    }
+
+    .produto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .produto .preco {
+        max-width: 70%;
+    }
 }
 
 @media screen and (max-width:639px) {
     #destaques {
         height: auto;
     }
-    
 
-    
+    #produtos .grid {
+        display: block;
+    }
+
+
 }

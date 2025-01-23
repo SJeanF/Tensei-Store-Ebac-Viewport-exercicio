@@ -2,7 +2,7 @@ $(document).ready(function () {
     console.log('funcionou')
 
     $('#carrosel').slick({
-        autoplay:false
+        autoplay:true
     })
 
     $('#hamburguer').on('click', function() {
