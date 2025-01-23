@@ -153,6 +153,10 @@ header #hamburguer span{
     width: 100%;
 }
 
+.dropdown-produto h5 {
+    text-align: center;
+}
+
 section h2 {
     text-align: center;
     margin: 15px 0;
