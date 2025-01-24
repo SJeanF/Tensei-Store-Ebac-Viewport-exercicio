@@ -1,7 +1,8 @@
 let custoAtual = 0
+let carrinho = []
 
 $(document).ready(function () {
-
+    
     $('#carrosel').slick({
         autoplay:true
     })
@@ -20,12 +21,18 @@ $(document).ready(function () {
         $('.dropdown-content').slideToggle().css('display', 'flex');
     })
 
+    $('#fechar').on('click', function () {
+        alert('Finja que abriu o menu para finalizar a compra')
+    })
+
     $('#destaques .carrinho').on('click', function() {
         const produtoImg = $(this).parent().parent().parent().find('img')
         const produtoNameElement = $(this).parent().parent().find('h3').text()
         const precoElement = parseFloat($(this).parent().find('h4').find('span').text())
         
-        adicionarAOCarrinho(produtoImg, produtoNameElement, precoElement);
+        if (carrinho.includes(produtoNameElement)) {
+            alert('Este item está fora de estoque')
+        } else {adicionarAOCarrinho(produtoImg, produtoNameElement, precoElement);}
     })
 
     $('#produtos .carrinho').on('click', function() {
@@ -33,7 +40,9 @@ $(document).ready(function () {
         const produtoNameElement = $(this).parent().parent().find('h4').text()
         const precoElement = parseFloat($(this).parent().find('h3').find('span').text())
 
-        adicionarAOCarrinho(produtoImg, produtoNameElement, precoElement);
+        if (carrinho.includes(produtoNameElement)) {
+            alert('Este produto está fora de estoque')
+        } else {adicionarAOCarrinho(produtoImg, produtoNameElement, precoElement);}
     })
 
     $('body').on('click', '.apagar',function() {
@@ -43,7 +52,6 @@ $(document).ready(function () {
 
 
 function adicionarAOCarrinho(img, name, price) {
-    
     alteraSubTotal(price)
 
     const listaProdutos = $('.dropdown-lista-produtos')
@@ -61,23 +69,23 @@ function adicionarAOCarrinho(img, name, price) {
     botaoDeApagar.appendTo(novoProduto)
 
     novoProduto.appendTo(listaProdutos)
+    carrinho.push(name)
 }
 
 function apagarDoCarrinho (qual) {
     const aApagar =$(qual).parent()
+    const nomeProduto = $(qual).parent().find('h5').text()
     const precoAApagar = parseFloat(aApagar.find('span').text())
+    
     alteraSubTotal(-precoAApagar)
     aApagar.remove()
-    
+    carrinho = carrinho.filter(produto => produto !== `${nomeProduto}`)
 }
 
 function alteraSubTotal (num) {
     const subTotal = $('.dropdown-content h4 span')
 
-    console.log(num)
-    
     custoAtual += num
-    console.log(custoAtual)
 
     subTotal.text(`${custoAtual.toFixed(2)}`)
 }
